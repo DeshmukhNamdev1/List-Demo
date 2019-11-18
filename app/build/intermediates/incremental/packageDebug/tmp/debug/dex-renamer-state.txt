@@ -1,0 +1,4 @@
+#Mon Nov 18 17:56:13 IST 2019
+base.0=/home/rapidera/Android/androidProjects/ListDemo/app/build/intermediates/dex/debug/out/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
