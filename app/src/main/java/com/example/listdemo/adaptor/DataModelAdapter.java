@@ -41,6 +41,8 @@ public class DataModelAdapter extends RecyclerView.Adapter<DataModelAdapter.MyVi
                     .with(context)
                     .load(dataModel.getThumbnailUrl())
                     .centerCrop()
+                    .placeholder(R.drawable.ic_launcher_background)
+                    .error(R.mipmap.ic_launcher)
                     .into(holder.ivImage);
             holder.ivImage.setVisibility(View.VISIBLE);
         } else {

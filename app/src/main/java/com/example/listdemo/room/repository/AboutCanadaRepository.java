@@ -39,7 +39,7 @@ public class AboutCanadaRepository {
         LiveData<Resource<List<DataModel>>> liveData = new NetworkBoundResource<List<DataModel>, List<DataModel>>() {
             @Override
             protected void saveCallResult(@NonNull List<DataModel> items) {
-                myDatabase.daoAboutCanada().insertAll(items);
+                insertAll(items);
             }
 
             @Override
@@ -56,8 +56,7 @@ public class AboutCanadaRepository {
             @NonNull
             @Override
             protected LiveData<ApiResponse<List<DataModel>>> createCall() {
-                LiveData<ApiResponse<List<DataModel>>> response = Api.getApi().getAboutCanadas();
-                return response;
+                return Api.getApi().getAboutCanadas();
             }
         }.getAsLiveData();
 
