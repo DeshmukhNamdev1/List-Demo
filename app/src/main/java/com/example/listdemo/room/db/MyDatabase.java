@@ -7,8 +7,9 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 import com.example.listdemo.model.DataModel;
+import com.example.listdemo.model.Record;
 import com.example.listdemo.room.dao.DaoAboutCanada;
-@Database(entities = {DataModel.class}, version = 1, exportSchema = false)
+@Database(entities = {DataModel.class,Record.class}, version = 2, exportSchema = false)
 public abstract class MyDatabase extends RoomDatabase {
     private static String DB_NAME = "lost_demo";
     private static volatile MyDatabase INSTANCE;

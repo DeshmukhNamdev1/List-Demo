@@ -1,48 +1,35 @@
 package com.example.listdemo.fragments;
 
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
-
-import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.listdemo.R;
-import com.example.listdemo.activities.DetailActivity;
-import com.example.listdemo.adaptor.DataModelAdapter;
-import com.example.listdemo.dto.Resource;
-import com.example.listdemo.model.DataModel;
-import com.example.listdemo.room.repository.AboutCanadaRepository;
 import com.example.listdemo.viewmodel.ListViewModel;
 
-import java.util.List;
-
 public class ListFragment extends Fragment {
-
+    private static final String TAG = "ListFragment";
     private ListViewModel mViewModel;
-    private DataModelAdapter mAdapter;
     private RecyclerView mRecyclerView;
     private LinearLayout llProgress;
-    private AboutCanadaRepository aboutCanadaRepository;
+    private FeedListAdapter mAdapter;
 
-    public static ListFragment newInstance() {
+   /* public static ListFragment newInstance() {
         return new ListFragment();
-    }
+    }*/
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        aboutCanadaRepository = new AboutCanadaRepository(getContext());
     }
 
     @Override
@@ -64,16 +51,9 @@ public class ListFragment extends Fragment {
 
     private void setupListUpdate() {
         llProgress.setVisibility(View.VISIBLE);
-        mAdapter = new DataModelAdapter(getContext(), new DataModelAdapter.DataModelClickListener() {
-            @Override
-            public void onClick(DataModel dataModel) {
-                Intent intent = new Intent(getActivity(), DetailActivity.class);
-                intent.putExtra("data", dataModel);
-                startActivity(intent);
-            }
-        });
+        mAdapter = new FeedListAdapter(getContext());
         mRecyclerView.setHasFixedSize(true);
-        mRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3));
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setAdapter(mAdapter);
     }
 
@@ -81,12 +61,13 @@ public class ListFragment extends Fragment {
     public void onStart() {
         super.onStart();
         llProgress.setVisibility(View.VISIBLE);
-        aboutCanadaRepository.getAboutCanadas().observe(getViewLifecycleOwner(), new Observer<Resource<List<DataModel>>>() {
-            @Override
-            public void onChanged(Resource<List<DataModel>> listResource) {
-                llProgress.setVisibility(View.GONE);
-                mAdapter.setData(listResource.getData());
-            }
+        mViewModel.getArticleLiveData().observe(getViewLifecycleOwner(), records -> {
+            llProgress.setVisibility(View.GONE);
+            mAdapter.submitList(records);
         });
+        mViewModel.getNetworkState().observe(this, networkState -> {
+            mAdapter.setNetworkState(networkState);
+        });
+
     }
 }
