@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 import androidx.paging.PagedList;
 
-import com.example.listdemo.fragments.util.NetworkState;
+import com.example.listdemo.utils.NetworkState;
 import com.example.listdemo.model.NetworkRecords;
 import com.example.listdemo.model.Record;
 import com.example.listdemo.net.Api;

@@ -4,16 +4,12 @@ import android.app.Application;
 
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.Transformations;
 import androidx.paging.LivePagedListBuilder;
 import androidx.paging.PagedList;
 
-import com.example.listdemo.fragments.util.NetworkState;
+import com.example.listdemo.utils.NetworkState;
 import com.example.listdemo.model.Record;
 import com.example.listdemo.room.repository.AboutCanadaRepository;
-
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 public class ListViewModel extends AndroidViewModel {
 

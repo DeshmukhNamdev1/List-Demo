@@ -1,4 +1,4 @@
-package com.example.listdemo.fragments.util;
+package com.example.listdemo.utils;
 
 public class NetworkState {
 

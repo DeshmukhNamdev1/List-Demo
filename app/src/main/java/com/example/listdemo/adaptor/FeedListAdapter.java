@@ -1,18 +1,17 @@
-package com.example.listdemo.fragments;
+package com.example.listdemo.adaptor;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.paging.PagedListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.listdemo.R;
-import com.example.listdemo.fragments.util.NetworkState;
+import com.example.listdemo.databinding.ProgressListItemBinding;
+import com.example.listdemo.databinding.ViewRepoListItemBinding;
+import com.example.listdemo.utils.NetworkState;
 import com.example.listdemo.model.Record;
 
 
@@ -46,11 +45,11 @@ public class FeedListAdapter extends PagedListAdapter<Record, RecyclerView.ViewH
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         if (viewType == TYPE_PROGRESS) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.progress_list_item, parent, false);
-            return new NetworkStateItemViewHolder(view);
+            ProgressListItemBinding binding = ProgressListItemBinding.inflate(LayoutInflater.from(context), parent, false);
+            return new NetworkStateItemViewHolder(binding);
         } else {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_repo_list_item, parent, false);
-            return new RepoViewHolder(view);
+            ViewRepoListItemBinding binding = ViewRepoListItemBinding.inflate(LayoutInflater.from(context), parent, false);
+            return new RepoViewHolder(binding);
         }
     }
 
@@ -107,20 +106,12 @@ public class FeedListAdapter extends PagedListAdapter<Record, RecyclerView.ViewH
 
 
     static final class RepoViewHolder extends RecyclerView.ViewHolder {
-
-        TextView repoNameTextView;
-        TextView repoDescriptionTextView;
-        TextView forksTextView;
-        TextView starsTextView;
-
+        private ViewRepoListItemBinding binding;
         private Record repo;
 
-        RepoViewHolder(View itemView) {
-            super(itemView);
-            repoNameTextView = itemView.findViewById(R.id.tv_repo_name);
-            repoDescriptionTextView = itemView.findViewById(R.id.tv_repo_description);
-            forksTextView = itemView.findViewById(R.id.tv_forks);
-            starsTextView = itemView.findViewById(R.id.tv_stars);
+        RepoViewHolder(ViewRepoListItemBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
             /*itemView.setOnClickListener(v -> {
                 if(repo != null) {
                     repoSelectedListener.onRepoSelected(repo);
@@ -130,9 +121,9 @@ public class FeedListAdapter extends PagedListAdapter<Record, RecyclerView.ViewH
 
         void bind(Record repo) {
             this.repo = repo;
-            repoNameTextView.setText(repo.getQuarter());
-            repoDescriptionTextView.setText(repo.getVolumeOfMobileData());
-            forksTextView.setText(String.valueOf(repo.getId()));
+            binding.tvRepoName.setText(repo.getQuarter());
+            binding.tvRepoDescription.setText(repo.getVolumeOfMobileData());
+            binding.tvForks.setText(String.valueOf(repo.getId()));
 
         }
     }
@@ -143,28 +134,27 @@ public class FeedListAdapter extends PagedListAdapter<Record, RecyclerView.ViewH
      */
     public static class NetworkStateItemViewHolder extends RecyclerView.ViewHolder {
 
-        TextView errorMsg;
-        ProgressBar progressBar;
 
-        public NetworkStateItemViewHolder(View view) {
-            super(view);
-            errorMsg=view.findViewById(R.id.errorMsg);
-            progressBar=view.findViewById(R.id.progressBar);
+        private com.example.listdemo.databinding.ProgressListItemBinding binding;
 
+        public NetworkStateItemViewHolder(ProgressListItemBinding binding) {
+            super(binding.getRoot());
+
+            this.binding = binding;
         }
 
         public void bindView(NetworkState networkState) {
             if (networkState != null && networkState.getStatus() == NetworkState.Status.RUNNING) {
-                progressBar.setVisibility(View.VISIBLE);
+                binding.progressBar.setVisibility(View.VISIBLE);
             } else {
-                progressBar.setVisibility(View.GONE);
+                binding.progressBar.setVisibility(View.GONE);
             }
 
             if (networkState != null && networkState.getStatus() == NetworkState.Status.FAILED) {
-                errorMsg.setVisibility(View.VISIBLE);
-                errorMsg.setText(networkState.getMsg());
+                binding.errorMsg.setVisibility(View.VISIBLE);
+                binding.errorMsg.setText(networkState.getMsg());
             } else {
-                errorMsg.setVisibility(View.GONE);
+                binding.errorMsg.setVisibility(View.GONE);
             }
         }
     }

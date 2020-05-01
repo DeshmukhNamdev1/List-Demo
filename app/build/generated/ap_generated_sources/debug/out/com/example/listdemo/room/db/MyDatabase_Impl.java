@@ -29,17 +29,19 @@ public final class MyDatabase_Impl extends MyDatabase {
 
   @Override
   protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration configuration) {
-    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(1) {
+    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(2) {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
         _db.execSQL("CREATE TABLE IF NOT EXISTS `DataModel` (`albumId` INTEGER NOT NULL, `id` INTEGER, `title` TEXT, `url` TEXT, `thumbnailUrl` TEXT, PRIMARY KEY(`albumId`))");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `Record` (`id` INTEGER NOT NULL, `volumeOfMobileData` TEXT, `quarter` TEXT, PRIMARY KEY(`id`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '30c19588faab38049aa023051d3b7674')");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'b6d9b194ca65eb7a29d49451ea4dac7b')");
       }
 
       @Override
       public void dropAllTables(SupportSQLiteDatabase _db) {
         _db.execSQL("DROP TABLE IF EXISTS `DataModel`");
+        _db.execSQL("DROP TABLE IF EXISTS `Record`");
         if (mCallbacks != null) {
           for (int _i = 0, _size = mCallbacks.size(); _i < _size; _i++) {
             mCallbacks.get(_i).onDestructiveMigration(_db);
@@ -93,9 +95,22 @@ public final class MyDatabase_Impl extends MyDatabase {
                   + " Expected:\n" + _infoDataModel + "\n"
                   + " Found:\n" + _existingDataModel);
         }
+        final HashMap<String, TableInfo.Column> _columnsRecord = new HashMap<String, TableInfo.Column>(3);
+        _columnsRecord.put("id", new TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsRecord.put("volumeOfMobileData", new TableInfo.Column("volumeOfMobileData", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsRecord.put("quarter", new TableInfo.Column("quarter", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        final HashSet<TableInfo.ForeignKey> _foreignKeysRecord = new HashSet<TableInfo.ForeignKey>(0);
+        final HashSet<TableInfo.Index> _indicesRecord = new HashSet<TableInfo.Index>(0);
+        final TableInfo _infoRecord = new TableInfo("Record", _columnsRecord, _foreignKeysRecord, _indicesRecord);
+        final TableInfo _existingRecord = TableInfo.read(_db, "Record");
+        if (! _infoRecord.equals(_existingRecord)) {
+          return new RoomOpenHelper.ValidationResult(false, "Record(com.example.listdemo.model.Record).\n"
+                  + " Expected:\n" + _infoRecord + "\n"
+                  + " Found:\n" + _existingRecord);
+        }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "30c19588faab38049aa023051d3b7674", "76c6127a6827dcb1d65db02c5455c52c");
+    }, "b6d9b194ca65eb7a29d49451ea4dac7b", "85ee177951a71b1ee9365f9c7f60da41");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)
@@ -108,7 +123,7 @@ public final class MyDatabase_Impl extends MyDatabase {
   protected InvalidationTracker createInvalidationTracker() {
     final HashMap<String, String> _shadowTablesMap = new HashMap<String, String>(0);
     HashMap<String, Set<String>> _viewTables = new HashMap<String, Set<String>>(0);
-    return new InvalidationTracker(this, _shadowTablesMap, _viewTables, "DataModel");
+    return new InvalidationTracker(this, _shadowTablesMap, _viewTables, "DataModel","Record");
   }
 
   @Override
@@ -118,6 +133,7 @@ public final class MyDatabase_Impl extends MyDatabase {
     try {
       super.beginTransaction();
       _db.execSQL("DELETE FROM `DataModel`");
+      _db.execSQL("DELETE FROM `Record`");
       super.setTransactionSuccessful();
     } finally {
       super.endTransaction();
