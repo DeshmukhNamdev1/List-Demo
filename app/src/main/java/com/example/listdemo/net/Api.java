@@ -1,28 +1,19 @@
 package com.example.listdemo.net;
 
-import androidx.lifecycle.LiveData;
-
-import com.example.listdemo.dto.ApiResponse;
-import com.example.listdemo.model.DataModel;
 import com.example.listdemo.model.NetworkRecords;
-import com.example.listdemo.model.Record;
 import com.example.listdemo.utils.LiveDataCallAdapterFactory;
-
-import java.util.List;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public class Api {
 
     private static ApiInterface api;
-//        private static final String BASE_URL = "http://jsonplaceholder.typicode.com";
     private static final String BASE_URL = "https://data.gov.sg/api/action/";
 
     public static ApiInterface getApi() {
@@ -46,8 +37,6 @@ public class Api {
 
     public interface ApiInterface {
         String API_KEY = "a807b7ab-6cad-4aa6-87d0-e283a7353a0f";
-        @GET("/photos")
-        LiveData<ApiResponse<List<DataModel>>> getAboutCanadas();
 
         @POST("datastore_search")
         Call<NetworkRecords> getFilterList(
