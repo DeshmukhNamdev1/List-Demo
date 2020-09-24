@@ -6,76 +6,76 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="14"
-8-->C:\Users\ndeshmukh\AndroidStudioProjects\List-Demo\app\src\main\AndroidManifest.xml
+8-->D:\projects\List-Demo\app\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="29" />
-9-->C:\Users\ndeshmukh\AndroidStudioProjects\List-Demo\app\src\main\AndroidManifest.xml
+9-->D:\projects\List-Demo\app\src\main\AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.INTERNET" />
-11-->C:\Users\ndeshmukh\AndroidStudioProjects\List-Demo\app\src\main\AndroidManifest.xml:5:5-67
-11-->C:\Users\ndeshmukh\AndroidStudioProjects\List-Demo\app\src\main\AndroidManifest.xml:5:22-64
+11-->D:\projects\List-Demo\app\src\main\AndroidManifest.xml:5:5-67
+11-->D:\projects\List-Demo\app\src\main\AndroidManifest.xml:5:22-64
 12
 13    <application
-13-->C:\Users\ndeshmukh\AndroidStudioProjects\List-Demo\app\src\main\AndroidManifest.xml:7:5-23:19
+13-->D:\projects\List-Demo\app\src\main\AndroidManifest.xml:7:5-23:19
 14        android:allowBackup="true"
-14-->C:\Users\ndeshmukh\AndroidStudioProjects\List-Demo\app\src\main\AndroidManifest.xml:8:9-35
+14-->D:\projects\List-Demo\app\src\main\AndroidManifest.xml:8:9-35
 15        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-15-->[androidx.core:core:1.1.0] C:\Users\ndeshmukh\.gradle\caches\transforms-2\files-2.1\59b85a6fa9e503d16ce6f2c531c10d0a\core-1.1.0\AndroidManifest.xml:24:18-86
+15-->[androidx.core:core:1.1.0] C:\Users\ndeshmukh\.gradle\caches\transforms-2\files-2.1\504bec220db378d175efdfc1c3b3ae1f\core-1.1.0\AndroidManifest.xml:24:18-86
 16        android:debuggable="true"
 17        android:icon="@mipmap/ic_launcher"
-17-->C:\Users\ndeshmukh\AndroidStudioProjects\List-Demo\app\src\main\AndroidManifest.xml:9:9-43
+17-->D:\projects\List-Demo\app\src\main\AndroidManifest.xml:9:9-43
 18        android:label="@string/app_name"
-18-->C:\Users\ndeshmukh\AndroidStudioProjects\List-Demo\app\src\main\AndroidManifest.xml:10:9-41
+18-->D:\projects\List-Demo\app\src\main\AndroidManifest.xml:10:9-41
 19        android:roundIcon="@mipmap/ic_launcher_round"
-19-->C:\Users\ndeshmukh\AndroidStudioProjects\List-Demo\app\src\main\AndroidManifest.xml:11:9-54
+19-->D:\projects\List-Demo\app\src\main\AndroidManifest.xml:11:9-54
 20        android:supportsRtl="true"
-20-->C:\Users\ndeshmukh\AndroidStudioProjects\List-Demo\app\src\main\AndroidManifest.xml:12:9-35
+20-->D:\projects\List-Demo\app\src\main\AndroidManifest.xml:12:9-35
 21        android:testOnly="true"
 22        android:theme="@style/AppTheme"
-22-->C:\Users\ndeshmukh\AndroidStudioProjects\List-Demo\app\src\main\AndroidManifest.xml:13:9-40
+22-->D:\projects\List-Demo\app\src\main\AndroidManifest.xml:13:9-40
 23        android:usesCleartextTraffic="true" >
-23-->C:\Users\ndeshmukh\AndroidStudioProjects\List-Demo\app\src\main\AndroidManifest.xml:14:9-44
+23-->D:\projects\List-Demo\app\src\main\AndroidManifest.xml:14:9-44
 24        <activity android:name="com.example.listdemo.activities.DetailActivity" />
-24-->C:\Users\ndeshmukh\AndroidStudioProjects\List-Demo\app\src\main\AndroidManifest.xml:15:9-62
-24-->C:\Users\ndeshmukh\AndroidStudioProjects\List-Demo\app\src\main\AndroidManifest.xml:15:19-60
+24-->D:\projects\List-Demo\app\src\main\AndroidManifest.xml:15:9-62
+24-->D:\projects\List-Demo\app\src\main\AndroidManifest.xml:15:19-60
 25        <activity android:name="com.example.listdemo.activities.MainActivity" >
-25-->C:\Users\ndeshmukh\AndroidStudioProjects\List-Demo\app\src\main\AndroidManifest.xml:16:9-22:20
-25-->C:\Users\ndeshmukh\AndroidStudioProjects\List-Demo\app\src\main\AndroidManifest.xml:16:19-58
+25-->D:\projects\List-Demo\app\src\main\AndroidManifest.xml:16:9-22:20
+25-->D:\projects\List-Demo\app\src\main\AndroidManifest.xml:16:19-58
 26            <intent-filter>
-26-->C:\Users\ndeshmukh\AndroidStudioProjects\List-Demo\app\src\main\AndroidManifest.xml:17:13-21:29
+26-->D:\projects\List-Demo\app\src\main\AndroidManifest.xml:17:13-21:29
 27                <action android:name="android.intent.action.MAIN" />
-27-->C:\Users\ndeshmukh\AndroidStudioProjects\List-Demo\app\src\main\AndroidManifest.xml:18:17-69
-27-->C:\Users\ndeshmukh\AndroidStudioProjects\List-Demo\app\src\main\AndroidManifest.xml:18:25-66
+27-->D:\projects\List-Demo\app\src\main\AndroidManifest.xml:18:17-69
+27-->D:\projects\List-Demo\app\src\main\AndroidManifest.xml:18:25-66
 28
 29                <category android:name="android.intent.category.LAUNCHER" />
-29-->C:\Users\ndeshmukh\AndroidStudioProjects\List-Demo\app\src\main\AndroidManifest.xml:20:17-77
-29-->C:\Users\ndeshmukh\AndroidStudioProjects\List-Demo\app\src\main\AndroidManifest.xml:20:27-74
+29-->D:\projects\List-Demo\app\src\main\AndroidManifest.xml:20:17-77
+29-->D:\projects\List-Demo\app\src\main\AndroidManifest.xml:20:27-74
 30            </intent-filter>
 31        </activity>
 32
 33        <meta-data
-33-->[com.github.bumptech.glide:okhttp3-integration:4.10.0] C:\Users\ndeshmukh\.gradle\caches\transforms-2\files-2.1\3c92ea596cd1399eb2f03d43b0bd7094\jetified-okhttp3-integration-4.10.0\AndroidManifest.xml:11:9-13:43
+33-->[com.github.bumptech.glide:okhttp3-integration:4.10.0] C:\Users\ndeshmukh\.gradle\caches\transforms-2\files-2.1\2e855932e352bf74d16cc2fbe766053f\jetified-okhttp3-integration-4.10.0\AndroidManifest.xml:11:9-13:43
 34            android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule"
-34-->[com.github.bumptech.glide:okhttp3-integration:4.10.0] C:\Users\ndeshmukh\.gradle\caches\transforms-2\files-2.1\3c92ea596cd1399eb2f03d43b0bd7094\jetified-okhttp3-integration-4.10.0\AndroidManifest.xml:12:13-84
+34-->[com.github.bumptech.glide:okhttp3-integration:4.10.0] C:\Users\ndeshmukh\.gradle\caches\transforms-2\files-2.1\2e855932e352bf74d16cc2fbe766053f\jetified-okhttp3-integration-4.10.0\AndroidManifest.xml:12:13-84
 35            android:value="GlideModule" />
-35-->[com.github.bumptech.glide:okhttp3-integration:4.10.0] C:\Users\ndeshmukh\.gradle\caches\transforms-2\files-2.1\3c92ea596cd1399eb2f03d43b0bd7094\jetified-okhttp3-integration-4.10.0\AndroidManifest.xml:13:13-40
+35-->[com.github.bumptech.glide:okhttp3-integration:4.10.0] C:\Users\ndeshmukh\.gradle\caches\transforms-2\files-2.1\2e855932e352bf74d16cc2fbe766053f\jetified-okhttp3-integration-4.10.0\AndroidManifest.xml:13:13-40
 36
 37        <service
-37-->[androidx.room:room-runtime:2.2.0] C:\Users\ndeshmukh\.gradle\caches\transforms-2\files-2.1\f79b12f7d13e7194712f7ce25dc84980\room-runtime-2.2.0\AndroidManifest.xml:25:9-27:40
+37-->[androidx.room:room-runtime:2.2.0] C:\Users\ndeshmukh\.gradle\caches\transforms-2\files-2.1\82efb144488f79b6a1477c3616fe7320\room-runtime-2.2.0\AndroidManifest.xml:25:9-27:40
 38            android:name="androidx.room.MultiInstanceInvalidationService"
-38-->[androidx.room:room-runtime:2.2.0] C:\Users\ndeshmukh\.gradle\caches\transforms-2\files-2.1\f79b12f7d13e7194712f7ce25dc84980\room-runtime-2.2.0\AndroidManifest.xml:26:13-74
+38-->[androidx.room:room-runtime:2.2.0] C:\Users\ndeshmukh\.gradle\caches\transforms-2\files-2.1\82efb144488f79b6a1477c3616fe7320\room-runtime-2.2.0\AndroidManifest.xml:26:13-74
 39            android:exported="false" />
-39-->[androidx.room:room-runtime:2.2.0] C:\Users\ndeshmukh\.gradle\caches\transforms-2\files-2.1\f79b12f7d13e7194712f7ce25dc84980\room-runtime-2.2.0\AndroidManifest.xml:27:13-37
+39-->[androidx.room:room-runtime:2.2.0] C:\Users\ndeshmukh\.gradle\caches\transforms-2\files-2.1\82efb144488f79b6a1477c3616fe7320\room-runtime-2.2.0\AndroidManifest.xml:27:13-37
 40
 41        <provider
-41-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\ndeshmukh\.gradle\caches\transforms-2\files-2.1\755075ed4193399b4296a494f3e41f47\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:23:9-27:43
+41-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\ndeshmukh\.gradle\caches\transforms-2\files-2.1\3b3b61bafb22f676542aa170b69b657e\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:23:9-27:43
 42            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-42-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\ndeshmukh\.gradle\caches\transforms-2\files-2.1\755075ed4193399b4296a494f3e41f47\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:24:13-79
+42-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\ndeshmukh\.gradle\caches\transforms-2\files-2.1\3b3b61bafb22f676542aa170b69b657e\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:24:13-79
 43            android:authorities="com.example.listdemo.lifecycle-process"
-43-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\ndeshmukh\.gradle\caches\transforms-2\files-2.1\755075ed4193399b4296a494f3e41f47\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:25:13-69
+43-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\ndeshmukh\.gradle\caches\transforms-2\files-2.1\3b3b61bafb22f676542aa170b69b657e\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:25:13-69
 44            android:exported="false"
-44-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\ndeshmukh\.gradle\caches\transforms-2\files-2.1\755075ed4193399b4296a494f3e41f47\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:26:13-37
+44-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\ndeshmukh\.gradle\caches\transforms-2\files-2.1\3b3b61bafb22f676542aa170b69b657e\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:26:13-37
 45            android:multiprocess="true" />
-45-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\ndeshmukh\.gradle\caches\transforms-2\files-2.1\755075ed4193399b4296a494f3e41f47\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:27:13-40
+45-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\ndeshmukh\.gradle\caches\transforms-2\files-2.1\3b3b61bafb22f676542aa170b69b657e\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:27:13-40
 46    </application>
 47
 48</manifest>
